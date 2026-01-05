@@ -19,14 +19,14 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
-      defaultConfig {
-        applicationId = "com.example.mashinhesab_app"
-        
-        minSdk = 21   // این خط را تغییر دهید
+          defaultConfig {
+        [span_4](start_span)applicationId = "com.example.mashinhesab_app"[span_4](end_span)
+        minSdk = 21 // به جای flutter.minSdkVersion این عدد را بگذارید
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+
 
     buildTypes {
         release {
@@ -40,4 +40,5 @@ android {
 flutter {
     source = "../.."
 }
+
 
