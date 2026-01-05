@@ -15,14 +15,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          # تغییر نسخه به 3.16.0 برای حل ارور FlutterPlugin.kt
-          flutter-version: '3.16.0' 
+          # این نسخه هم دارت جدید دارد و هم باگ قبلی را رد می‌کند
+          flutter-version: '3.24.0' 
 
       - name: Install dependencies
         run: |
-          flutter clean
           flutter pub get
 
       - name: Build APK
-        # استفاده از دستور عمومی‌تر برای جلوگیری از تداخل معماری
         run: flutter build apk --release --no-tree-shake-icons
