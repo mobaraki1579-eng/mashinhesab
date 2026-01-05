@@ -15,12 +15,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          # این نسخه هم دارت جدید دارد و هم باگ قبلی را رد می‌کند
-          flutter-version: '3.24.0' 
+          # استفاده از نسخه ۳.۲۷.۰ که با ساختار جدید Gradle سازگاری کامل دارد
+          flutter-version: '3.27.0'
 
       - name: Install dependencies
-        run: |
-          flutter pub get
+        run: flutter pub get
 
       - name: Build APK
+        # حذف فلگ‌های اضافی برای جلوگیری از تداخل
         run: flutter build apk --release --no-tree-shake-icons
