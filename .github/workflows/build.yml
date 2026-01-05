@@ -15,18 +15,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          # این نسخه را دقیقاً مطابق با پروژه شما تنظیم کردم
-          flutter-version: '3.10.3' 
+          channel: 'stable' # به جای نسخه عددی، بگذارید آخرین نسخه پایدار را بگیرد
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          flutter clean
+          flutter pub get
 
       - name: Build APK
-        # دستور ساخت برای معماری استاندارد موبایل
         run: flutter build apk --release --target-platform android-arm64 --no-tree-shake-icons
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-calculator-app
-          path: build/app/outputs/flutter-apk/*.apk
